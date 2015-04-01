@@ -1,0 +1,52 @@
+import socket
+import sys 
+
+try:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+except socket.error:
+    print ('Socket Creation Failed ') 
+    sys.exit()
+    
+print ('Socket Created')
+
+
+host = '72.47.166.105'
+port = 8080
+sock.connect((host, port))
+print ('connected to IP address')
+
+data = sock.recv(4096)
+print (data)
+
+s.close()
+
+#Socket client example in python
+ 
+import socket   #for sockets
+import sys  #for exit
+ 
+#create an INET, STREAMing socket
+try:
+     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+except socket.error:
+    print ('Failed to create socket')
+    sys.exit()
+     
+print ('Socket Created')
+ 
+host = 'http://72.47.166.105:8080/data/';
+port = 8080;
+ 
+remote_ip = '72.47.166.105';
+ 
+#Connect to remote server
+s.connect((remote_ip , port))
+ 
+print ('Socket Connected to ' + host + ' on ip ' + remote_ip)
+ 
+#Now receive data
+reply = s.recv(4096)
+ 
+print (reply)
+
