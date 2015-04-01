@@ -1,0 +1,4 @@
+import requests
+r = requests.get('http://72.47.166.105:8080/data/Data3.db')
+print(r.text)
+
