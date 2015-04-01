@@ -1,0 +1,50 @@
+import _sqlite3 as lite
+import sys
+db = lite.connect(':memory:') 
+cursor = db.cursor()
+cursor.execute('''
+    CREATE TABLE GPSDPT(id INTEGER PRIMARY KEY,  freq TEXT,
+                       intensity TEXT, depth TEXT)
+''')
+db.commit()
+
+
+/////////////
+##insert data into sql
+cursor = db.cursor()
+freq1 = '40Hz'
+intensity1 = '20Hz'
+depth1 = '100ft'
+ 
+freq2 = '60Hz'
+intensity2 = '30Hz'
+depth2 = '200ft'
+
+# Insert data info 1
+cursor.execute('''INSERT INTO GPSDPT(freq, intensity, depth)
+                  VALUES(?,?,?)''', (freq1,intensity1, depth1))
+print('First GPS Data inserted')
+ 
+# Insert user 2
+cursor.execute('''INSERT INTO GPSDPT(freq, intensity, depth)
+                  VALUES(?,?,?)''', (freq2,intensity2, depth2))
+print('Second GPS Data inserted')
+ 
+db.commit()
+
+
+
+OUTPUT:  First GPS Data inserted
+        Second GPS Data inserted
+        
+##retreiving data with sqlite
+cursor.execute('''SELECT freq, intensity, depth FROM GPSDPT''')
+##GPSDPT1 = cursor.fetchone() #retrieve the first row
+##print(GPSDPT1[0]) #Print the first column retrieved(user's name)
+all_rows = cursor.fetchall()
+for row in all_rows:
+    # row[0] returns the first column in the query (name), row[1] returns email column.
+    print('{0} : {1}, {2}'.format(row[0], row[1], row[2]))
+    
+OUTPUT: 40Hz : 20Hz, 100ft
+        60Hz : 30Hz, 200ft
