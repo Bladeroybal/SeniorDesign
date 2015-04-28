@@ -14,3 +14,6 @@ Friday, 08 May 2015
 Video Due
 ---
 Due this 
+
+
+1/3 of everything is graded already. Demo day next Tuesday (redefined friday). Welcome to come by. default demo day. Can come Tuesday and Wednesday 2-4 in EIC. At least 2 needed to be there this Friday at Engineering Showcase. Final report due two weeks from today (4/28) so due 5/12. It's a progress report. Emphasis on progress. 
